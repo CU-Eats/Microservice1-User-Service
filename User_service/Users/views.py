@@ -2,8 +2,8 @@ from django.http import Http404
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import User
-from serializer import UserSerializer
+from .models import users
+from .serializer import UserSerializer
 
 @api_view(['GET'])
 def base_message(request):
@@ -20,14 +20,14 @@ def add_user(request):
 @api_view(['DELETE'])
 def delete_user(request, uni):
     try:
-        user_item = User.objects.get(uni=uni)
-    except User.DoesNotExist:
+        user_item = users.objects.get(uni=uni)
+    except users.DoesNotExist:
         return Response({'error': 'User not found.'}, status=status.HTTP_404_NOT_FOUND)
     user_item.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
 
 @api_view(['GET'])
 def get_all_users(request):
-    all_users = User.objects.all()
+    all_users = users.objects.all()
     serializer = UserSerializer(all_users, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
