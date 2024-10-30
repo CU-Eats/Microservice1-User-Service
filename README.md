@@ -3,10 +3,9 @@
 This microservice is a fundamental component of our application, responsible for managing all user-related functionalities. It handles authentication, authorization, and user profile management for both general users and restaurant owners. The User Microservice is built using Django. It operates independently with its own database and exposes a set of RESTful API endpoints for integration with the composite microservice and other sub-microservices.## Features
 
 ## Features
-- **User Authentication and Authorization**
-- **Profile Management**
-- **Support for Multiple User Roles**
-- **RESTful API Endpoints**
+- Handles user authentication and authorization.
+- Manages user profiles and credentials for both general users and restaurant owners.
+- Support for Multiple User Roles.
 
 ## API Endpoints
 
