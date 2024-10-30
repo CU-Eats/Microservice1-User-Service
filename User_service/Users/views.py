@@ -13,9 +13,9 @@ def base_message(request):
 
 @api_view(['POST'])
 def add_user(request):
-    request_data = request.data.copy()
-    if "password" in request_data:
-        request_data["password"] = make_password(request_data["password"])
+    # request_data = request.data.copy()
+    # if "password" in request_data:
+    #     request_data["password"] = make_password(request_data["password"])
     serializer = UserSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
@@ -52,7 +52,7 @@ def check_user_password(request):
         user = users.objects.get(uni=user_id)
 
         # Check if password matches
-        if check_password(password, user.password):
+        if password == user.password:
             return Response({"message": "Password is correct."}, status=status.HTTP_200_OK)
         else:
             return Response({"message": "Password is incorrect."}, status=status.HTTP_401_UNAUTHORIZED)
