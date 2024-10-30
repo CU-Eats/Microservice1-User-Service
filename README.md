@@ -18,7 +18,16 @@ This microservice is a fundamental component of our application, responsible for
 ### Add User
 - URL: ```POST /add_user/```
 - Description: Creates a new user account. Expects user data in JSON format in the request body.
-- Input argument: uni, email, first_name, last_name, id_type, password
+- Input argument:
+  | Parameter    | Type    |  Description                                     |
+  |--------------|---------| -------------------------------------------------|
+  | `uni`        | Integer | Unique numeric identifier for the user          |
+  | `email`      | String  | Email address of the user                       |
+  | `first_name` | String  | First name of the user                          |
+  | `last_name`  | String  | Last name of the user                           |
+  | `id_type`    | String  | Type of user ID (`student`, `faculty`, `guest`) |
+  | `password`   | String  | Password for the user account                   |
+
   
 ### Get All Users
 - URL: ```GET /get_all_users/```
@@ -29,9 +38,9 @@ This microservice is a fundamental component of our application, responsible for
 - URL: ```DELETE /delete-user/<int:uni>/```
 - Description: Deletes a user account specified by user's uni.
 - Input argument:
-  | Parameter | Type    | Required | Description                            |
-  | --------- | ------- | -------- | -------------------------------------- |
-  | uni       | Integer | Yes      | Unique numeric identifier of the user  |
+  | Parameter | Type    |  Description                            |
+  | --------- | ------- |  -------------------------------------- |
+  | uni       | Integer |  Unique numeric identifier of the user  |
 
 
 ### Check User Password:
