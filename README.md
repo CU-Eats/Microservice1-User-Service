@@ -16,4 +16,10 @@ This microservice is a fundamental component of our application, responsible for
 ### Add User
 - **POST /add_user/**
   Creates a new user account. Expects user data in JSON format in the request body.
+### Get All Users
+- **GET /get_all_users/**
+  Retrieves a list of all registered users.
+### Delete User
+- **DELETE /delete-user/<int:uni>/**
+  Deletes a user account specified by user's uni.
   
