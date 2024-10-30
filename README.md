@@ -40,11 +40,14 @@ This microservice is a fundamental component of our application, responsible for
 - Input argument:
   | Parameter | Type    |  Description                            |
   | --------- | ------- |  -------------------------------------- |
-  | uni       | Integer |  Unique numeric identifier of the user  |
+  | `uni`        | Integer | Unique numeric identifier for the user          |
 
 
 ### Check User Password:
 - URL: ```GET /get_one_user/```
 - Description: Verify if the input uni and password match to the user account.
-- Input argument: uni, password
-  
+- Input argument:
+  | Parameter | Type    |  Description                            |
+  | --------- | ------- |  -------------------------------------- |
+  | `uni`        | Integer | Unique numeric identifier for the user          |
+  | `password`   | String  | Password for the user account                   |
