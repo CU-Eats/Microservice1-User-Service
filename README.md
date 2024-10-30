@@ -11,7 +11,7 @@ This microservice is a fundamental component of our application, responsible for
 ## API Endpoints
 
 ### Base Message
-- **GET /**
+- ```GET /```
   Returns a welcome message or basic information about the microservice.
 ### Add User
 - **POST /add_user/**
