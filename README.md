@@ -29,9 +29,10 @@ This microservice is a fundamental component of our application, responsible for
 - URL: ```DELETE /delete-user/<int:uni>/```
 - Description: Deletes a user account specified by user's uni.
 - Input argument:
-| Parameter | Type    | Required | Description                          |
-|-----------|---------|----------|--------------------------------------|
-| uni       | Integer | Yes      | Unique numeric identifier of the user |
+
+| Parameter | Type    | Required | Description                            |
+| --------- | ------- | -------- | -------------------------------------- |
+| uni       | Integer | Yes      | Unique numeric identifier of the user  |
 
 
 ### Check User Password:
