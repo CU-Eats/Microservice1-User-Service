@@ -53,7 +53,14 @@ def check_user_password(request):
 
         # Check if password matches
         if password == user.password:
-            return Response({"message": "Password is correct."}, status=status.HTTP_200_OK)
+            user_info = {
+                "uni": user.uni,
+                "email": user.email,
+                "first_name": user.first_name,
+                "last_name": user.last_name,
+                "id_type": user.id_type,
+            }
+            return Response({"message": "Password is correct.", "user_info": user_info}, status=status.HTTP_200_OK)
         else:
             return Response({"message": "Password is incorrect."}, status=status.HTTP_401_UNAUTHORIZED)
 
