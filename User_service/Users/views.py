@@ -1,4 +1,6 @@
 from django.http import Http404
+from django.contrib.auth.hashers import check_password
+from django.contrib.auth.hashers import make_password
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -11,11 +13,15 @@ def base_message(request):
 
 @api_view(['POST'])
 def add_user(request):
+    request_data = request.data.copy()
+    if "password" in request_data:
+        request_data["password"] = make_password(request_data["password"])
     serializer = UserSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(['DELETE'])
 def delete_user(request, uni):
@@ -46,7 +52,7 @@ def check_user_password(request):
         user = users.objects.get(uni=user_id)
 
         # Check if password matches
-        if user.password == password:
+        if check_password(password, user.password):
             return Response({"message": "Password is correct."}, status=status.HTTP_200_OK)
         else:
             return Response({"message": "Password is incorrect."}, status=status.HTTP_401_UNAUTHORIZED)
