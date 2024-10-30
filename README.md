@@ -7,6 +7,22 @@ This microservice is a fundamental component of our application, responsible for
 - Manages user profiles and credentials for both general users and restaurant owners.
 - Support for Multiple User Roles.
 
+## User Model
+The user data is stored using the following Django model:
+```
+class users(models.Model):
+    uni = models.IntegerField()
+    email = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    ID_TYPE_CHOICES = [ ('student', 'Student'), ('faculty', 'Faculty'), ('guest', 'Guest'), ]
+    id_type = models.CharField(max_length=10, choices=ID_TYPE_CHOICES)
+    password = models.CharField(max_length=16, default="default_password")
+
+def __str__(self):
+    return f"{self.first_name} - {self.last_name} - {self.uni}"
+```
+
 ## API Endpoints
 
 ### Base Message
