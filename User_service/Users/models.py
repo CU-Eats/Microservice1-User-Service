@@ -8,6 +8,7 @@ class users(models.Model):
     last_name = models.CharField(max_length=100)
     ID_TYPE_CHOICES = [ ('student', 'Student'), ('faculty', 'Faculty'), ('guest', 'Guest'), ]
     id_type = models.CharField(max_length=10, choices=ID_TYPE_CHOICES)
+    password = models.CharField(max_length=16, default="default_password")
 
 def __str__(self):
     return f"{self.first_name} - {self.last_name} - {self.uni}"

@@ -31,3 +31,25 @@ def get_all_users(request):
     all_users = users.objects.all()
     serializer = UserSerializer(all_users, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
+
+@api_view(['GET'])
+def check_user_password(request):
+    user_id = request.query_params.get("uni")
+    password = request.query_params.get("password")
+
+    # Check if both parameters are provided
+    if not user_id or not password:
+        return Response({"error": "Please provide both 'id' and 'password' parameters."}, status=status.HTTP_400_BAD_REQUEST)
+
+    try:
+        # Narrow down by id
+        user = users.objects.get(uni=user_id)
+
+        # Check if password matches
+        if user.password == password:
+            return Response({"message": "Password is correct."}, status=status.HTTP_200_OK)
+        else:
+            return Response({"message": "Password is incorrect."}, status=status.HTTP_401_UNAUTHORIZED)
+
+    except users.DoesNotExist:
+        return Response({"error": "User not found."}, status=status.HTTP_404_NOT_FOUND)
