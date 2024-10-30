@@ -11,15 +11,27 @@ This microservice is a fundamental component of our application, responsible for
 ## API Endpoints
 
 ### Base Message
-- ```GET /```
-  Returns a welcome message or basic information about the microservice.
+- URL: ```GET /```
+- Description: Returns a welcome message or basic information about the microservice.
+- Input argument: None
+  
 ### Add User
-- ```POST /add_user/```
-  Creates a new user account. Expects user data in JSON format in the request body.
+- URL: ```POST /add_user/```
+- Description: Creates a new user account. Expects user data in JSON format in the request body.
+- Input argument: uni, email, first_name, last_name, id_type, password
+  
 ### Get All Users
-- ```GET /get_all_users/```
-  Retrieves a list of all registered users.
+- URL: ```GET /get_all_users/```
+- Description: Retrieves a list of all registered users.
+- Input argument: None
+  
 ### Delete User
-- ```DELETE /delete-user/<int:uni>/```
-  Deletes a user account specified by user's uni.
+- URL: ```DELETE /delete-user/<int:uni>/```
+- Description: Deletes a user account specified by user's uni.
+- Input argument: uni
+
+### Check User Password:
+- URL: ```GET /get_one_user/```
+- Description: Verify if the input uni and password match to the user account.
+- Input argument: uni, password
   
