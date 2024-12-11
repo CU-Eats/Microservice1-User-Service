@@ -1,6 +1,6 @@
 # Microservice1-User-Service
 
-This microservice is a fundamental component of our application, responsible for managing all user-related functionalities. It handles authentication, authorization, and user profile management for both general users and restaurant owners. The User Microservice is built using Django. It operates independently with its own database and exposes a set of RESTful API endpoints for integration with the composite microservice and other sub-microservices.## Features
+This microservice is a fundamental component of our application, responsible for managing all user-related functionalities. It handles authentication, authorization, and user profile management for both general users and restaurant owners. The User Microservice is built using Django. It operates independently with its own database and exposes a set of RESTful API endpoints for integration with the composite microservice and other sub-microservices.
 
 ## Features
 - Handles user authentication and authorization.
